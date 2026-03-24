@@ -77,117 +77,6 @@ export default function App() {
     }
   };
 
-  const RelatedPages = () => (
-    <section className="mt-16 pt-8 border-t border-slate-100">
-      <h3 className="text-lg font-bold mb-4 text-slate-900">Related Pages</h3>
-      <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-        <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
-        <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="text-blue-600 hover:underline">Liquor Store POS in Sanford</button>
-        <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">How to Lower Credit Card Fees</button>
-        <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing for Liquor Stores</button>
-        <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS System for Liquor Stores</button>
-        <button onClick={() => navigate('/pos-system-small-liquor-store-sanford')} className="text-blue-600 hover:underline">POS for Small Liquor Stores</button>
-        <button onClick={() => navigate('/liquor-store-payment-processing-costs')} className="text-blue-600 hover:underline">Payment Processing Costs</button>
-        <button onClick={() => navigate('/liquor-store-credit-card-fees')} className="text-blue-600 hover:underline">Credit Card Fees Guide</button>
-      </div>
-    </section>
-  );
-
-  const LeadForm = () => (
-    <div className="max-w-xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold mb-4 text-slate-900">Request a Fee Review</h2>
-        <p className="text-slate-600 mb-2">Fill this out and we will connect you with a local specialist to review your current setup.</p>
-        <p className="text-sm text-slate-500 italic">We will review your information and connect you with a local representative.</p>
-      </div>
-
-      {isSubmitted ? (
-        <div className="bg-green-50 border border-green-200 p-8 rounded-lg text-center">
-          <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Check className="w-6 h-6" />
-          </div>
-          <h3 className="text-xl font-bold text-green-900 mb-2">Thank you.</h3>
-          <p className="text-green-800">We will contact you shortly.</p>
-          <button 
-            onClick={() => setIsSubmitted(false)}
-            className="mt-6 text-sm text-green-700 underline hover:text-green-800"
-          >
-            Send another request
-          </button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-          <div>
-            <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-md border ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
-              placeholder="John Doe"
-            />
-            {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="businessName" className="block text-sm font-medium text-slate-700 mb-1">Business Name</label>
-            <input
-              type="text"
-              id="businessName"
-              name="businessName"
-              value={formData.businessName}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-md border ${errors.businessName ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
-              placeholder="Sanford Spirits"
-            />
-            {errors.businessName && <p className="mt-1 text-sm text-red-600">{errors.businessName}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="phoneNumber" className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-md border ${errors.phoneNumber ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
-              placeholder="(407) 555-0123"
-            />
-            {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
-          </div>
-
-          <div>
-            <label htmlFor="monthlyVolume" className="block text-sm font-medium text-slate-700 mb-1">Monthly Card Volume</label>
-            <select
-              id="monthlyVolume"
-              name="monthlyVolume"
-              value={formData.monthlyVolume}
-              onChange={handleChange}
-              className={`w-full px-4 py-3 rounded-md border ${errors.monthlyVolume ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all appearance-none bg-white`}
-            >
-              <option value="">Select an option</option>
-              <option value="Under $5,000">Under $5,000</option>
-              <option value="$5,000 to $20,000">$5,000 to $20,000</option>
-              <option value="$20,000 to $50,000">$20,000 to $50,000</option>
-              <option value="Over $50,000">Over $50,000</option>
-            </select>
-            {errors.monthlyVolume && <p className="mt-1 text-sm text-red-600">{errors.monthlyVolume}</p>}
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-all shadow-md active:scale-[0.98]"
-          >
-            Request Fee Review
-          </button>
-        </form>
-      )}
-    </div>
-  );
-
   if (path === '/liquor-store-pos-sanford-fl') {
     return (
       <div className="min-h-screen bg-white text-slate-900 font-sans">
@@ -236,9 +125,16 @@ export default function App() {
 
             {/* Call to Action / Form Section */}
             <section ref={formRef} className="mt-16 pt-16 border-t border-slate-100">
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -317,9 +213,16 @@ export default function App() {
 
             <section className="mt-16 pt-16 border-t border-slate-100">
               <p className="text-xl font-medium text-center mb-10">If you want to see if you can lower your fees, start with a quick check.</p>
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -361,9 +264,16 @@ export default function App() {
               <p>Working with a local specialist means you get support when you need it. We focus on providing Sanford liquor stores with transparent rates and modern equipment that integrates seamlessly with your business.</p>
             </section>
             <section className="mt-16 pt-16 border-t border-slate-100">
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -442,9 +352,16 @@ export default function App() {
 
             <section className="mt-16 pt-16 border-t border-slate-100">
               <p className="text-xl font-medium text-center mb-10">If you want to compare your current system and see if there is a better option, request a fee review.</p>
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -491,9 +408,16 @@ export default function App() {
               <li>Local support when you have a question</li>
             </ul>
             <section className="mt-16 pt-16 border-t border-slate-100">
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -537,9 +461,16 @@ export default function App() {
               The best way to understand your costs is to look at your "effective rate"—the total fees paid divided by your total sales volume. If this number is higher than expected, it's time for a review.
             </p>
             <section className="mt-16 pt-16 border-t border-slate-100">
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -586,9 +517,16 @@ export default function App() {
               The only way to know exactly what you are paying—and if you can pay less—is to have a specialist review your actual statements. We provide this review for local Sanford businesses at no cost.
             </p>
             <section className="mt-16 pt-16 border-t border-slate-100">
-              <LeadForm />
+              <LeadForm 
+                formData={formData} 
+                isSubmitted={isSubmitted} 
+                errors={errors} 
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                setIsSubmitted={setIsSubmitted} 
+              />
             </section>
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -661,9 +599,16 @@ export default function App() {
 
         {/* 5. Lead Form Section */}
         <section ref={formRef} id="contact-form" className="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
-          <LeadForm />
+          <LeadForm 
+            formData={formData} 
+            isSubmitted={isSubmitted} 
+            errors={errors} 
+            handleChange={handleChange} 
+            handleSubmit={handleSubmit} 
+            setIsSubmitted={setIsSubmitted} 
+          />
           <div className="max-w-xl mx-auto">
-            <RelatedPages />
+            <RelatedPages navigate={navigate} />
           </div>
         </section>
 
@@ -778,3 +723,125 @@ export default function App() {
     </div>
   );
 }
+
+const RelatedPages = ({ navigate }: { navigate: (to: string) => void }) => (
+  <section className="mt-16 pt-8 border-t border-slate-100">
+    <h3 className="text-lg font-bold mb-4 text-slate-900">Related Pages</h3>
+    <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+      <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="text-blue-600 hover:underline">Liquor Store POS in Sanford</button>
+      <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">How to Lower Credit Card Fees</button>
+      <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing for Liquor Stores</button>
+      <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS System for Liquor Stores</button>
+      <button onClick={() => navigate('/pos-system-small-liquor-store-sanford')} className="text-blue-600 hover:underline">POS for Small Liquor Stores</button>
+      <button onClick={() => navigate('/liquor-store-payment-processing-costs')} className="text-blue-600 hover:underline">Payment Processing Costs</button>
+      <button onClick={() => navigate('/liquor-store-credit-card-fees')} className="text-blue-600 hover:underline">Credit Card Fees Guide</button>
+    </div>
+  </section>
+);
+
+interface LeadFormProps {
+  formData: any;
+  isSubmitted: boolean;
+  errors: Record<string, string>;
+  handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  handleSubmit: (e: FormEvent) => void;
+  setIsSubmitted: (val: boolean) => void;
+}
+
+const LeadForm = ({ formData, isSubmitted, errors, handleChange, handleSubmit, setIsSubmitted }: LeadFormProps) => (
+  <div className="max-w-xl mx-auto">
+    <div className="text-center mb-10">
+      <h2 className="text-3xl font-bold mb-4 text-slate-900">Request a Fee Review</h2>
+      <p className="text-slate-600 mb-2">Fill this out and we will connect you with a local specialist to review your current setup.</p>
+      <p className="text-sm text-slate-500 italic">We will review your information and connect you with a local representative.</p>
+    </div>
+
+    {isSubmitted ? (
+      <div className="bg-green-50 border border-green-200 p-8 rounded-lg text-center">
+        <div className="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Check className="w-6 h-6" />
+        </div>
+        <h3 className="text-xl font-bold text-green-900 mb-2">Thank you.</h3>
+        <p className="text-green-800">We will contact you shortly.</p>
+        <button 
+          onClick={() => setIsSubmitted(false)}
+          className="mt-6 text-sm text-green-700 underline hover:text-green-800"
+        >
+          Send another request
+        </button>
+      </div>
+    ) : (
+      <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+        <div>
+          <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 rounded-md border ${errors.fullName ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
+            placeholder="John Doe"
+          />
+          {errors.fullName && <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="businessName" className="block text-sm font-medium text-slate-700 mb-1">Business Name</label>
+          <input
+            type="text"
+            id="businessName"
+            name="businessName"
+            value={formData.businessName}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 rounded-md border ${errors.businessName ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
+            placeholder="Sanford Spirits"
+          />
+          {errors.businessName && <p className="mt-1 text-sm text-red-600">{errors.businessName}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="phoneNumber" className="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 rounded-md border ${errors.phoneNumber ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
+            placeholder="(407) 555-0123"
+          />
+          {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
+        </div>
+
+        <div>
+          <label htmlFor="monthlyVolume" className="block text-sm font-medium text-slate-700 mb-1">Estimated Monthly Card Volume</label>
+          <select
+            id="monthlyVolume"
+            name="monthlyVolume"
+            value={formData.monthlyVolume}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 rounded-md border ${errors.monthlyVolume ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-white`}
+          >
+            <option value="">Select volume...</option>
+            <option value="under-5k">Under $5,000</option>
+            <option value="5k-20k">$5,000 - $20,000</option>
+            <option value="20k-50k">$20,000 - $50,000</option>
+            <option value="50k-100k">$50,000 - $100,000</option>
+            <option value="over-100k">Over $100,000</option>
+          </select>
+          {errors.monthlyVolume && <p className="mt-1 text-sm text-red-600">{errors.monthlyVolume}</p>}
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-all shadow-md flex items-center justify-center group"
+        >
+          Submit Request
+          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </form>
+    )}
+  </div>
+);
