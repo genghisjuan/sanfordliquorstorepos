@@ -77,6 +77,19 @@ export default function App() {
     }
   };
 
+  const RelatedPages = () => (
+    <section className="mt-16 pt-8 border-t border-slate-100">
+      <h3 className="text-lg font-bold mb-4 text-slate-900">Related Pages</h3>
+      <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+        <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="text-blue-600 hover:underline">Liquor Store POS in Sanford</button>
+        <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">How to Lower Credit Card Fees</button>
+        <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing for Liquor Stores</button>
+        <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS System for Liquor Stores</button>
+      </div>
+    </section>
+  );
+
   const LeadForm = () => (
     <div className="max-w-xl mx-auto">
       <div className="text-center mb-10">
@@ -222,6 +235,7 @@ export default function App() {
             <section ref={formRef} className="mt-16 pt-16 border-t border-slate-100">
               <LeadForm />
             </section>
+            <RelatedPages />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -302,6 +316,132 @@ export default function App() {
               <p className="text-xl font-medium text-center mb-10">If you want to see if you can lower your fees, start with a quick check.</p>
               <LeadForm />
             </section>
+            <RelatedPages />
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (path === '/credit-card-processing-liquor-store-sanford') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Credit Card Processing</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-8">Credit Card Processing for Liquor Stores in Sanford</h1>
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <section className="mb-12">
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Reliable credit card processing is the backbone of any successful liquor store. In Sanford, businesses need a partner that understands high-volume retail and the importance of secure, fast transactions.
+              </p>
+            </section>
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Why Local Processing Matters</h2>
+              <p>Working with a local specialist means you get support when you need it. We focus on providing Sanford liquor stores with transparent rates and modern equipment that integrates seamlessly with your business.</p>
+            </section>
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <LeadForm />
+            </section>
+            <RelatedPages />
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (path === '/best-pos-system-liquor-store-sanford') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Best POS System</span>
+          </nav>
+          
+          <h1 className="text-4xl font-bold mb-8 leading-tight">Best POS System for Liquor Stores in Sanford FL</h1>
+          
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <section className="mb-12">
+              <p className="text-xl text-slate-600 leading-relaxed">
+                Choosing the right POS system for your liquor store can affect both your daily operations and your costs. Many systems look similar at first, but the details matter when it comes to fees, ease of use, and long term value.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">What to Look For</h2>
+              <p className="mb-4">When comparing POS systems for liquor stores, focus on:</p>
+              <ul className="list-disc pl-6 mb-6 space-y-2">
+                <li>clear and transparent processing fees</li>
+                <li>fast and reliable checkout</li>
+                <li>easy inventory management</li>
+                <li>support for high product volume</li>
+                <li>simple setup for staff</li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Common Problems</h2>
+              <p className="mb-4">Many liquor store owners deal with:</p>
+              <ul className="list-disc pl-6 mb-6 space-y-2">
+                <li>systems that are slow or outdated</li>
+                <li>unclear or high processing fees</li>
+                <li>complicated inventory management</li>
+                <li>poor support when issues come up</li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">A Practical Approach</h2>
+              <p className="mb-6">
+                Instead of guessing, it helps to review your current system and compare it to what is available locally. This allows you to see if your current setup is costing more than it should.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Local Option</h2>
+              <p className="mb-6">
+                We connect liquor store owners in Sanford with a local specialist who can review your current system and fees. They can show you if there is a better option available. If not, you can keep what you have.
+              </p>
+            </section>
+
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <p className="text-xl font-medium text-center mb-10">If you want to compare your current system and see if there is a better option, request a fee review.</p>
+              <LeadForm />
+            </section>
+            <RelatedPages />
           </div>
         </main>
         <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
@@ -359,13 +499,22 @@ export default function App() {
             <p className="text-slate-800 font-semibold text-lg">
               If your store runs more than $5,000 a month in card sales, you should check this.
             </p>
-            <p className="text-slate-500 mt-2 font-medium">Serving local Sanford businesses.</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+              <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="text-blue-600 hover:underline">Liquor Store POS</button>
+              <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">Lower Your Fees</button>
+              <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing</button>
+              <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS Systems</button>
+            </div>
+            <p className="text-slate-500 mt-4 font-medium">Serving local Sanford businesses.</p>
           </div>
         </section>
 
         {/* 5. Lead Form Section */}
         <section ref={formRef} id="contact-form" className="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
           <LeadForm />
+          <div className="max-w-xl mx-auto">
+            <RelatedPages />
+          </div>
         </section>
 
         {/* 3. Problem Section */}
@@ -451,11 +600,18 @@ export default function App() {
           <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. All rights reserved.</p>
           <p className="mt-2">Sanford, Florida</p>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
+            <button onClick={() => navigate('/')} className="hover:underline">Home</button>
             <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="hover:underline">
               Liquor Store POS in Sanford FL
             </button>
             <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="hover:underline">
               Lower Credit Card Fees
+            </button>
+            <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="hover:underline">
+              Credit Card Processing
+            </button>
+            <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="hover:underline">
+              Best POS Systems
             </button>
           </div>
         </div>
