@@ -15,6 +15,7 @@ export default function App() {
     monthlyVolume: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const formRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ export default function App() {
     return newErrors;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -60,9 +61,29 @@ export default function App() {
       return;
     }
     
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    setErrors({});
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send request');
+      }
+
+      console.log('Form submitted successfully:', formData);
+      setIsSubmitted(true);
+      setErrors({});
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrors({ submit: 'Something went wrong. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -85,9 +106,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -128,6 +149,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -152,9 +174,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -216,6 +238,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -240,9 +263,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -267,6 +290,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -291,9 +315,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -355,6 +379,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -379,9 +404,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -411,6 +436,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -435,9 +461,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -464,6 +490,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -488,9 +515,9 @@ export default function App() {
             <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
               Sanford Liquor Store POS
             </button>
-            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold">
               <Phone className="w-4 h-4 mr-2" />
-              <span>(407) 555-0123</span>
+              <span>(407) 476-5923</span>
             </a>
           </div>
         </header>
@@ -520,6 +547,7 @@ export default function App() {
               <LeadForm 
                 formData={formData} 
                 isSubmitted={isSubmitted} 
+                isSubmitting={isSubmitting}
                 errors={errors} 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit} 
@@ -550,12 +578,10 @@ export default function App() {
             <button onClick={scrollToForm} className="hover:text-blue-600 transition-colors">Contact</button>
           </nav>
           <div className="flex items-center">
-            <a 
-              href="tel:4075550123" 
-              className="flex items-center text-blue-700 font-semibold hover:text-blue-800 transition-colors"
+            <a href="tel:4074765923" className="flex items-center text-blue-700 font-semibold hover:text-blue-800 transition-colors"
             >
               <Phone className="w-4 h-4 mr-2" />
-              <span className="hidden sm:inline">(407) 555-0123</span>
+              <span className="hidden sm:inline">(407) 476-5923</span>
             </a>
           </div>
         </div>
@@ -602,6 +628,7 @@ export default function App() {
           <LeadForm 
             formData={formData} 
             isSubmitted={isSubmitted} 
+            isSubmitting={isSubmitting}
             errors={errors} 
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
@@ -743,13 +770,14 @@ const RelatedPages = ({ navigate }: { navigate: (to: string) => void }) => (
 interface LeadFormProps {
   formData: any;
   isSubmitted: boolean;
+  isSubmitting: boolean;
   errors: Record<string, string>;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   handleSubmit: (e: FormEvent) => void;
   setIsSubmitted: (val: boolean) => void;
 }
 
-const LeadForm = ({ formData, isSubmitted, errors, handleChange, handleSubmit, setIsSubmitted }: LeadFormProps) => (
+const LeadForm = ({ formData, isSubmitted, isSubmitting, errors, handleChange, handleSubmit, setIsSubmitted }: LeadFormProps) => (
   <div className="max-w-xl mx-auto">
     <div className="text-center mb-10">
       <h2 className="text-3xl font-bold mb-4 text-slate-900">Request a Fee Review</h2>
@@ -810,7 +838,7 @@ const LeadForm = ({ formData, isSubmitted, errors, handleChange, handleSubmit, s
             value={formData.phoneNumber}
             onChange={handleChange}
             className={`w-full px-4 py-3 rounded-md border ${errors.phoneNumber ? 'border-red-500 bg-red-50' : 'border-slate-300'} focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all`}
-            placeholder="(407) 555-0123"
+            placeholder="(407) 476-5923"
           />
           {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
         </div>
@@ -834,12 +862,19 @@ const LeadForm = ({ formData, isSubmitted, errors, handleChange, handleSubmit, s
           {errors.monthlyVolume && <p className="mt-1 text-sm text-red-600">{errors.monthlyVolume}</p>}
         </div>
 
+        {errors.submit && (
+          <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm mb-6">
+            {errors.submit}
+          </div>
+        )}
+
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-all shadow-md flex items-center justify-center group"
+          disabled={isSubmitting}
+          className={`w-full bg-blue-600 text-white py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-all shadow-md flex items-center justify-center group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
-          Submit Request
-          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          {isSubmitting ? 'Sending...' : 'Submit Request'}
+          {!isSubmitting && <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />}
         </button>
       </form>
     )}
