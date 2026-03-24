@@ -3,9 +3,6 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import nodemailer from "nodemailer";
 import cors from "cors";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 async function startServer() {
   const app = express();
@@ -38,7 +35,7 @@ async function startServer() {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_PORT === "465",
+      secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
