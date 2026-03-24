@@ -80,8 +80,8 @@ export default function App() {
   const LeadForm = () => (
     <div className="max-w-xl mx-auto">
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold mb-4 text-slate-900">Check Your Potential Savings</h2>
-        <p className="text-slate-600 mb-2">Fill this out and we will review your current setup.</p>
+        <h2 className="text-3xl font-bold mb-4 text-slate-900">Request a Fee Review</h2>
+        <p className="text-slate-600 mb-2">Fill this out and we will connect you with a local specialist to review your current setup.</p>
         <p className="text-sm text-slate-500 italic">We will review your information and connect you with a local representative.</p>
       </div>
 
@@ -165,7 +165,7 @@ export default function App() {
             type="submit"
             className="w-full bg-blue-600 text-white py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-all shadow-md active:scale-[0.98]"
           >
-            Check My Fees
+            Request Fee Review
           </button>
         </form>
       )}
@@ -187,6 +187,11 @@ export default function App() {
           </div>
         </header>
         <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Liquor Store POS in Sanford FL</span>
+          </nav>
           <h1 className="text-4xl font-bold mb-8">Liquor Store POS in Sanford FL</h1>
           
           <div className="prose prose-slate lg:prose-lg max-w-none">
@@ -215,6 +220,86 @@ export default function App() {
 
             {/* Call to Action / Form Section */}
             <section ref={formRef} className="mt-16 pt-16 border-t border-slate-100">
+              <LeadForm />
+            </section>
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (path === '/lower-credit-card-fees-liquor-store-sanford') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="text-blue-600 hover:underline">Liquor Store POS</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Lower Credit Card Fees</span>
+          </nav>
+          
+          <h1 className="text-4xl font-bold mb-8 leading-tight">How to Lower Credit Card Fees for Liquor Stores in Sanford</h1>
+          
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <section className="mb-12">
+              <p className="text-xl text-slate-600 leading-relaxed">
+                If you run a liquor store in Sanford, card processing fees are a constant expense. Many store owners accept these costs without knowing if they can be reduced. In many cases, there are simple ways to lower what you are paying.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Where Fees Come From</h2>
+              <p className="mb-4">Every card transaction includes processing fees. These can include:</p>
+              <ul className="list-disc pl-6 mb-6 space-y-2">
+                <li>percentage-based transaction fees</li>
+                <li>flat fees per transaction</li>
+                <li>monthly service charges</li>
+              </ul>
+              <p>If your rates are higher than they should be, the cost adds up quickly.</p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Why Most Stores Overpay</h2>
+              <p className="mb-6">
+                Most liquor store owners are focused on running their business day to day. They do not have time to review statements or compare providers. Because of this, many stay with the same setup for years without checking if better options exist.
+              </p>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">What You Can Do</h2>
+              <p className="mb-4">Lowering your fees usually starts with reviewing your current setup. This includes:</p>
+              <ul className="list-disc pl-6 mb-6 space-y-2">
+                <li>checking your current rates</li>
+                <li>identifying hidden fees</li>
+                <li>comparing options available in your area</li>
+              </ul>
+            </section>
+
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold mb-4">Simple Next Step</h2>
+              <p className="mb-6">
+                We connect liquor store owners in Sanford with a local specialist who can review your current setup. They will look at your current fees and explain if there is a way to reduce them. If not, you keep what you have.
+              </p>
+            </section>
+
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <p className="text-xl font-medium text-center mb-10">If you want to see if you can lower your fees, start with a quick check.</p>
               <LeadForm />
             </section>
           </div>
@@ -266,7 +351,7 @@ export default function App() {
               onClick={scrollToForm}
               className="bg-blue-600 text-white px-10 py-5 rounded-md font-bold text-xl hover:bg-blue-700 transition-all shadow-lg active:scale-95"
             >
-              Check My Fees
+              Request Fee Review
             </button>
             <p className="text-sm text-slate-500">Takes 2 minutes. No obligation.</p>
           </div>
@@ -355,7 +440,7 @@ export default function App() {
               onClick={scrollToForm}
               className="bg-blue-600 text-white px-10 py-5 rounded-md font-bold text-xl hover:bg-blue-700 transition-all shadow-lg active:scale-95"
             >
-              Check My Fees
+              Request Fee Review
             </button>
           </div>
         </section>
@@ -365,9 +450,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4">
           <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. All rights reserved.</p>
           <p className="mt-2">Sanford, Florida</p>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-wrap justify-center gap-4">
             <button onClick={() => navigate('/liquor-store-pos-sanford-fl')} className="hover:underline">
               Liquor Store POS in Sanford FL
+            </button>
+            <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="hover:underline">
+              Lower Credit Card Fees
             </button>
           </div>
         </div>
