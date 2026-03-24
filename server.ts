@@ -6,7 +6,7 @@ import cors from "cors";
 
 async function startServer() {
   const app = express();
-  const PORT = process.env.PORT || 8080;
+  const PORT = parseInt(process.env.PORT || "8080");
 
   app.use(express.json());
   
@@ -32,15 +32,35 @@ async function startServer() {
     }
 
     // 2. Configure Nodemailer
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465",
+    const smtpConfig: any = {
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
+    };
+
+    // Use Gmail service optimization if host is Gmail
+    if (process.env.SMTP_HOST?.includes("gmail.com")) {
+      smtpConfig.service = "gmail";
+      console.log("Using Gmail service optimization");
+    } else {
+      smtpConfig.host = process.env.SMTP_HOST;
+      smtpConfig.port = parseInt(process.env.SMTP_PORT || "587");
+      smtpConfig.secure = process.env.SMTP_SECURE === "true" || process.env.SMTP_PORT === "465";
+      console.log("Using custom SMTP config:", {
+        host: smtpConfig.host,
+        port: smtpConfig.port,
+        secure: smtpConfig.secure
+      });
+    }
+
+    console.log("Auth details:", {
+      user: process.env.SMTP_USER,
+      passLength: process.env.SMTP_PASS?.length,
+      hasPass: !!process.env.SMTP_PASS
     });
+
+    const transporter = nodemailer.createTransport(smtpConfig);
 
     try {
       // 3. Send the email
