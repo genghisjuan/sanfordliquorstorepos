@@ -86,6 +86,9 @@ export default function App() {
         <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">How to Lower Credit Card Fees</button>
         <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing for Liquor Stores</button>
         <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS System for Liquor Stores</button>
+        <button onClick={() => navigate('/pos-system-small-liquor-store-sanford')} className="text-blue-600 hover:underline">POS for Small Liquor Stores</button>
+        <button onClick={() => navigate('/liquor-store-payment-processing-costs')} className="text-blue-600 hover:underline">Payment Processing Costs</button>
+        <button onClick={() => navigate('/liquor-store-credit-card-fees')} className="text-blue-600 hover:underline">Credit Card Fees Guide</button>
       </div>
     </section>
   );
@@ -451,6 +454,150 @@ export default function App() {
     );
   }
 
+  if (path === '/pos-system-small-liquor-store-sanford') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">POS for Small Liquor Stores</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-8">POS System for Small Liquor Stores in Sanford</h1>
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              Small liquor stores in Sanford have specific needs. You don't need a complex enterprise system, but you do need something that works every time.
+            </p>
+            <h2 className="text-2xl font-bold mb-4">Simple and Effective</h2>
+            <p className="mb-6">
+              A good POS for a small store should focus on speed and accuracy. It should help you manage your inventory without being a full-time job. Most importantly, it should not come with high monthly fees that eat into your profits.
+            </p>
+            <h2 className="text-2xl font-bold mb-4">What Matters Most</h2>
+            <ul className="list-disc pl-6 mb-8 space-y-2">
+              <li>Low monthly costs</li>
+              <li>Easy to learn for new staff</li>
+              <li>Reliable hardware that lasts</li>
+              <li>Local support when you have a question</li>
+            </ul>
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <LeadForm />
+            </section>
+            <RelatedPages />
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (path === '/liquor-store-payment-processing-costs') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Processing Costs Explained</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-8">Liquor Store Payment Processing Costs Explained</h1>
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              Understanding your processing statement can be difficult. Fees are often hidden behind complex terms and multiple categories.
+            </p>
+            <h2 className="text-2xl font-bold mb-4">The Breakdown</h2>
+            <p className="mb-6">
+              Most costs come from three areas: interchange fees (set by card networks), processor markups, and fixed monthly fees. For a liquor store, these costs can vary based on your average transaction size and the types of cards your customers use.
+            </p>
+            <h2 className="text-2xl font-bold mb-4">How to Evaluate Costs</h2>
+            <p className="mb-6">
+              The best way to understand your costs is to look at your "effective rate"—the total fees paid divided by your total sales volume. If this number is higher than expected, it's time for a review.
+            </p>
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <LeadForm />
+            </section>
+            <RelatedPages />
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
+  if (path === '/liquor-store-credit-card-fees') {
+    return (
+      <div className="min-h-screen bg-white text-slate-900 font-sans">
+        <header className="bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <button onClick={() => navigate('/')} className="font-bold text-lg text-blue-700">
+              Sanford Liquor Store POS
+            </button>
+            <a href="tel:4075550123" className="flex items-center text-blue-700 font-semibold">
+              <Phone className="w-4 h-4 mr-2" />
+              <span>(407) 555-0123</span>
+            </a>
+          </div>
+        </header>
+        <main className="max-w-3xl mx-auto py-16 px-4">
+          <nav className="mb-8 text-sm">
+            <button onClick={() => navigate('/')} className="text-blue-600 hover:underline">Home</button>
+            <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-500">Credit Card Fees Guide</span>
+          </nav>
+          <h1 className="text-4xl font-bold mb-8">How Much Do Liquor Stores Pay in Credit Card Fees?</h1>
+          <div className="prose prose-slate lg:prose-lg max-w-none">
+            <p className="text-xl text-slate-600 leading-relaxed mb-8">
+              Many store owners ask what a "normal" fee is. While it varies, most liquor stores in Sanford pay between 2% and 4% on average.
+            </p>
+            <h2 className="text-2xl font-bold mb-4">Factors That Affect Your Fees</h2>
+            <ul className="list-disc pl-6 mb-8 space-y-2">
+              <li>Your total monthly sales volume</li>
+              <li>The average price of a customer's purchase</li>
+              <li>Whether you use flat-rate or interchange-plus pricing</li>
+              <li>The specific types of cards (debit vs. rewards credit cards)</li>
+            </ul>
+            <h2 className="text-2xl font-bold mb-4">Getting a Clear Answer</h2>
+            <p className="mb-6">
+              The only way to know exactly what you are paying—and if you can pay less—is to have a specialist review your actual statements. We provide this review for local Sanford businesses at no cost.
+            </p>
+            <section className="mt-16 pt-16 border-t border-slate-100">
+              <LeadForm />
+            </section>
+            <RelatedPages />
+          </div>
+        </main>
+        <footer className="py-12 border-t border-slate-100 text-center text-slate-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Sanford Liquor Store POS. Sanford, Florida</p>
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100">
       {/* 1. Header */}
@@ -504,6 +651,9 @@ export default function App() {
               <button onClick={() => navigate('/lower-credit-card-fees-liquor-store-sanford')} className="text-blue-600 hover:underline">Lower Your Fees</button>
               <button onClick={() => navigate('/credit-card-processing-liquor-store-sanford')} className="text-blue-600 hover:underline">Credit Card Processing</button>
               <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="text-blue-600 hover:underline">Best POS Systems</button>
+              <button onClick={() => navigate('/pos-system-small-liquor-store-sanford')} className="text-blue-600 hover:underline">Small Store POS</button>
+              <button onClick={() => navigate('/liquor-store-payment-processing-costs')} className="text-blue-600 hover:underline">Processing Costs</button>
+              <button onClick={() => navigate('/liquor-store-credit-card-fees')} className="text-blue-600 hover:underline">Fee Guide</button>
             </div>
             <p className="text-slate-500 mt-4 font-medium">Serving local Sanford businesses.</p>
           </div>
@@ -612,6 +762,15 @@ export default function App() {
             </button>
             <button onClick={() => navigate('/best-pos-system-liquor-store-sanford')} className="hover:underline">
               Best POS Systems
+            </button>
+            <button onClick={() => navigate('/pos-system-small-liquor-store-sanford')} className="hover:underline">
+              Small Store POS
+            </button>
+            <button onClick={() => navigate('/liquor-store-payment-processing-costs')} className="hover:underline">
+              Processing Costs
+            </button>
+            <button onClick={() => navigate('/liquor-store-credit-card-fees')} className="hover:underline">
+              Fee Guide
             </button>
           </div>
         </div>
